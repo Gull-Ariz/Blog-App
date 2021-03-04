@@ -1,0 +1,26 @@
+﻿@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Assignment03.Models.Post;
+<div class="">
+    <div class="container ">
+        <div class="form_container mt-4 h-100">
+            <form method="post">
+                <div>
+                    <h4>Create Your Post</h4>
+                </div>
+                <div>
+                    <textarea class="form-control" rows="2" asp-for="Title" name="title" placeholder="Title"></textarea>
+                    <span asp-validation-for="Title"></span>
+                </div>
+                <div>
+                    <textarea class="form-control mt-2" rows="6" asp-for="Content" name="content" placeholder="Content"></textarea>
+                    <span asp-validation-for="Content"></span>
+                </div>
+                <div>
+                    <input class="btn btn-outline-primary mt-2" type="submit" value="Post" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

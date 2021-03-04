@@ -1,0 +1,47 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@{
+    ViewBag.Title = "Profile";
+
+}
+@model Assignment03.Models.User;
+<div class="container offset-2 col-8 min-vh-100" style="background-color:white">
+    <div class="row">
+        <img width="100" height="100" src="~/Images/@ViewBag.imagePath" class="rounded-circle " alt="Profile Photo" />
+        <h3 class="ml-3 ">@ViewBag.userName</h3>
+    </div>
+    <div class="row ml-1 mt-4">
+        <h3 class="font-weight-light">Profile</h3>
+    </div>
+    <div class="min-vw-100"><hr class="min-vw-100"/></div>
+    <div class="row">
+        <form method="post" enctype="multipart/form-data">
+            <div class=" ml-3">
+                <label for="username">Username</label>
+                <input name="username" value="@ViewBag.userName" asp-for="UserName" class="form-control" /><br />
+            </div>
+            <div class=" ml-3">
+                <label for="email">Email</label>
+                <input name="email" value="@ViewBag.email" class="form-control" asp-for="Email" /><br />
+            </div>
+            <div class=" ml-3">
+                <label for="image">Image*</label>
+                <div>Currently: <a href="~/Images/@ViewBag.imagePath">@ViewBag.imagePath</a></div>
+                <p>Change</p>
+                <input accept="image/x-png,image/gif,image/jpeg"  asp-for="ProfilePic" />
+                <br />
+            </div>
+            <div class=" ml-3">
+                <label for="oldpwd">OldPassword*</label>
+                <input class="form-control" type="password" name="oldpwd" value="@ViewBag.password" /><br />
+            </div>
+            <div class=" ml-3">
+                <label for="newpwd">New Password</label>
+                <input class="form-control" name="newpwd" type="password" /><br />
+            </div>
+            <input class="btn btn-outline-primary ml-3" asp-action="Profile" type="submit" value="Update"/>
+        </form>
+    </div>
+</div>

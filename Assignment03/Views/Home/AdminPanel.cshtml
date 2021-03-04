@@ -1,0 +1,41 @@
+﻿@using Assignment03.Models
+@model List<Assignment03.Models.User>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Assignment03</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="jumbotron min-vh-100">
+        <div class="container">
+            <div class="h-100">
+                <div>
+                    <h1 class="justify-content-center text-center">Admin Panel</h1>
+                    <h4 class="justify-content-center text-center"><a class="btn btn-primary" asp-action="logoutAdmin">Logout</a></h4>
+                </div>
+                <div>
+                    <table class="table table-dark table-hover table-striped">
+                        <tbody>
+                            @foreach (Assignment03.Models.User user in Model)
+                            {
+                                <tr>
+                                    <td>@user.UserName</td>
+                                    <td>@user.Email</td>
+                                    <td>@user.Password</td>
+                                    <td>@user.imagePath</td>
+                                    <td><a class="btn btn-outline-primary" asp-route-email="@user.Email" asp-action="UpdateUser">Update User</a></td>
+                                    <td><a class="btn btn-primary" asp-route-email="@user.Email" asp-action="AddUser">Add User</a></td>
+                                    <td><a class="btn btn-danger" asp-route-email="@user.Email" asp-action="DeleteUser">Delete User</a></td>
+                                </tr>
+                             }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

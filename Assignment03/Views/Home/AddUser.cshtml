@@ -1,0 +1,46 @@
+﻿@using Assignment03.Models
+@model User
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Assignment03</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="jumbotron card d-flex align-items-center min-vh-100" style="background-color: white">
+        <div class="container text-center">
+            <div class="d-flex justify-content-center form_container mt-4 h-100">
+                <form name="SignupForm" method="post" enctype="multipart/form-data">
+                    <div>
+                        <input class="form-control" asp-for="UserName" placeholder="Username">
+                        <span asp-validation-for="UserName"></span><br />
+                    </div>
+                    <div>
+                        <input class="form-control" asp-for="Email" placeholder="Email">
+                        <span asp-validation-for="Email"></span><br />
+                    </div>
+                    <div>
+                        <input class="form-control" type="password" asp-for="Password" placeholder="Password">
+                        <span asp-validation-for="Password"></span><br />
+                    </div>
+                    <div>
+                        <input class="form-control" type="password" asp-for="C_Password" placeholder="Confirm Password">
+                        <span asp-validation-for="C_Password"></span><br />
+                    </div>
+                    <div>
+                        <label for="fileinput" class="justify-content-start">Upload Image</label>
+                        <input accept="image/x-png,image/gif,image/jpeg" asp-for="ProfilePic" /><br />
+                        <span asp-validation-for="ProfilePic"></span><br />
+                    </div>
+                    <div class="field-validation-error" asp-validation-summary="ModelOnly"></div>
+                    <div>
+                        <input class="btn btn-primary mt-2" type="submit" value="Add User" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Assignment03.Models.Post;
+<div class="">
+    <div class="container offset-2 col-8 min-vh-100 bg-white">
+        <div class="form_container mt-4 h-100">
+            <form method="post">
+                <div>
+                    <h4>Update Your Post</h4>
+                </div>
+                <div>
+                    <textarea class="form-control" rows="2" name="title" >@Model.Title</textarea>
+                </div>
+                <div>
+                    <textarea class="form-control mt-2" rows="6" name="content">@Model.Content</textarea>
+                    
+                </div>
+                <div>
+                    <input name="id" type="hidden" value="@Model.ID.ToString()" />
+                </div>
+                <div>
+                    <input class="btn btn-outline-primary mt-2" asp-action="UpdatePost" type="submit" value="UpdatePost" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

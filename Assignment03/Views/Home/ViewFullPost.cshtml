@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "HomePage";
+}
+@model Assignment03.Models.Post;
+<div class="container offset-2 col-8 min-vh-100">
+    <div>
+        <table>
+            <tbody>
+                <tr class=" bg-white">
+                    <td class="align-top">
+                        <img src="~/Images/@Model.imagePath" alt="Profile Pic" class="rounded-circle" width="70" height="70" />
+                    </td>
+                    <td>
+                        <div>
+                            <p class="float-left ml-4">@Model.AuthorName</p>
+                            <p class="float-left ml-4">@Model.Date</p>
+                        </div>
+                        <div class="clearfix"></div>
+                        <h4 class="ml-4">@Model.Title</h4>
+                        <p class="ml-4">@Model.Content</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

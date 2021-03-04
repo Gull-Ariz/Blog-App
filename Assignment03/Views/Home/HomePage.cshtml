@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    ViewBag.Title = "HomePage";
+}
+@model List<Assignment03.Models.Post>
+<div class="container offset-2 col-8 min-vh-100">
+    <div class="row ml-3">
+        <h1>
+            <a class="btn btn-primary" asp-action="CreatePost" type="submit">create post</a>
+        </h1>
+    </div>
+    <div >
+        <table>
+            <tbody> 
+                @foreach (Assignment03.Models.Post p in Model)
+                {
+                    <tr class=" bg-white">
+                        <td class="align-top">
+                            <img src="~/Images/@p.imagePath" alt="Profile Pic" class="rounded-circle" width="70" height="70" />
+                        </td>
+                        <td>
+                            <div>
+                                <p class="float-left ml-4">@p.AuthorName</p>
+                                <p class="float-left ml-4">@p.Date</p>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div>
+                                @if (ViewBag.userEmail == p.AuthorEmail)
+                                {
+                                <form method="post">
+                                    <input type="hidden" name="id" value="@p.ID" />
+                                    <a class="ml-4 btn btn-sm btn-primary" asp-route-id="@p.ID" asp-action="UpdatePost">Update</a>
+                                    <a class="ml-4 btn btn-sm btn-danger" asp-route-id="@p.ID" asp-action="DeletePost">Delete</a>
+                                </form>
+                                }
+                            </div>
+                            <h4 class="ml-4">@p.Title</h4>
+                            <p class="ml-4">@p.Content</p>
+                            <a class="btn btn-info float-lg-right mt-1" asp-route-id="@p.ID" asp-action="ViewFullPost">Read More</a>
+                        </td>
+                    </tr>
+                    <tr><td></td></tr>
+                    <tr><td></td></tr>
+                    <tr><td></td></tr>
+                    <tr><td></td></tr>
+                    <tr><td></td></tr>
+                    <tr><td></td></tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

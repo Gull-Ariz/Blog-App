@@ -1,0 +1,43 @@
+﻿@using Assignment03.Models
+@model Assignment03.Models.User
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Assignment03</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="jumbotron min-vh-100">
+        <div class="container">
+            <div class="h-100">
+                <div class="row">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class=" ml-3">
+                            <label for="username">Username</label>
+                            <input name="username" value="@ViewBag.userName" asp-for="UserName" class="form-control" /><br />
+                        </div>
+                        <div class=" ml-3">
+                            <label for="email">Email</label>
+                            <input name="email" type="email" value="@ViewBag.email" class="form-control" asp-for="Email" /><br />
+                        </div>
+                        <div class=" ml-3">
+                            <label for="oldpwd">Password*</label>
+                            <input class="form-control" name="pwd" value="@ViewBag.Password" asp-for="Password" /><br />
+                        </div>
+                        <div class=" ml-3">
+                            <label for="image">Image*</label>
+                            <div>Currently: <a href="~/Images/@ViewBag.imagePath">@ViewBag.imagePath</a></div>
+                            <p>Change</p>
+                            <input accept="image/x-png,image/gif,image/jpeg" asp-for="ProfilePic" />
+                            <br />
+                        </div>
+                        <input class="btn btn-outline-primary ml-3" asp-action="UpdateUser" type="submit" value="Update" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

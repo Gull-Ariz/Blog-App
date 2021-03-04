@@ -1,0 +1,35 @@
+﻿@using Assignment03.Models
+@model User
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Assignment03</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body >
+    <div class="jumbotron d-flex align-items-center min-vh-100" style="background-color: white">
+        <div class="container text-center">
+            <div class="d-flex justify-content-center form_container mt-4 h-100">
+                <form method="post">
+                    <div>
+                        <input class="form-control" type="email" name="Email" placeholder="Email"><br />
+                    </div>
+                    <div>
+                        <input class="form-control" type="password" name="Password" placeholder="Password"><br />
+                    </div>
+                    <div class="field-validation-error" asp-validation-summary="ModelOnly"></div>
+                    <div>
+                        <input class="btn btn-primary" type="submit" value="LOGIN">
+                    </div>
+                    <div class="mt-3">
+                        <p>Don't have an Account? <a asp-action="Index"> SignUp Now!</a></p>
+                        <p>Login as Admin?<a asp-action="LoginAdmin">Login Admin</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
